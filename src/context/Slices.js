@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
+let serverUrl = "https://exploding-kitten-backend.onrender.com";
+
 export const UserSlice = createSlice({
   name: "UserSlice",
   initialState: {
@@ -37,7 +39,7 @@ export async function fetchData() {
 
 export async function Register(name, email, password, dispatch) {
   try {
-    let res = await fetch("http://localhost:5000/api/v1/user/signup", {
+    let res = await fetch(`${serverUrl}/api/v1/user/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +83,7 @@ export async function Register(name, email, password, dispatch) {
 
 export async function Login(email, password, dispatch, navigate) {
   try {
-    let res = await fetch("http://localhost:5000/api/v1/user/login", {
+    let res = await fetch(`${serverUrl}/api/v1/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -130,7 +132,7 @@ export async function Login(email, password, dispatch, navigate) {
 export async function GetProfile(dispatch) {
   let token = JSON.parse(localStorage.getItem("token"));
   try {
-    let res = await fetch("http://localhost:5000/api/v1/user/profile", {
+    let res = await fetch(`${serverUrl}/api/v1/user/profile`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -178,7 +180,7 @@ export async function GetProfile(dispatch) {
 export async function AddResult(result) {
   let token = JSON.parse(localStorage.getItem("token"));
   try {
-    let res = await fetch("http://localhost:5000/api/v1/user/matches", {
+    let res = await fetch(`${serverUrl}/api/v1/user/matches`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

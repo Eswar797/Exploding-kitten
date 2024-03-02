@@ -153,7 +153,10 @@ function Game() {
   }, [cardArr, isAuthenticated, navigate, result, gameOver, lose, win]);
 
   return (
-    <div className="h-screen w-full  flex  justify-center items-start pt-20 overflow-hidden">
+    <div className="h-screen w-full  flex  justify-center items-center flex-col pt-0 gap-y-10 overflow-hidden relative">
+      <span className={isAuthenticated ? "hidden" : "absolute top-12"}>
+        * Note: Log in to Keep Track of your Score
+      </span>
       <div className="grid grid-cols-3 items-center justify-center gap-4 w-2/4  ">
         {newCards.map((item, idx) => {
           return (
@@ -175,15 +178,15 @@ function Game() {
           );
         })}
       </div>
-
-      <div className="absolute bottom-20">
+      <div className="">
         <button
           onClick={reload}
-          className="text-[1.15vw] py-2 px-4 rounded-md text-neutral-200 bg-black"
+          className="text-[1.15vw] py-2 px-4 rounded-md text-neutral-200 bg-gradient-to-tl from-orange-600 via-red-700 to-yellow-600"
         >
           Refresh Page
         </button>
       </div>
+
       <motion.div
         initial={{ transform: "translateY(100%)" }}
         animate={gameOver}

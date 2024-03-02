@@ -64,31 +64,28 @@ function SignUp() {
   }, [dispatch, isAuthenticated, navigate]);
 
   return (
-    <div className="h-screen w-full">
-      <div className="h-3/4 w-full flex items-end justify-center relative">
+    <div className="h-screen w-full flex justify-center items-center">
+      <div className="xl:h-4/5 w-full flex items-end justify-center relative">
         <form className="flex justify-center items-center flex-col gap-5 gap-y-8 py-10 px-12 rounded-lg bg-neutral-900 relative z-[999]">
-          <h1 className="text-[1.5vw] font-semibold gameOverText">
+          <h1 className=" sm:text-[2vw] xl:text-[1.5vw] font-semibold gameOverText">
             Sign Up Here
           </h1>
           <Input
-            height="3rem"
-            width="20vw"
+            
             data={name}
             type="text"
             change={setName}
             pHold="enter your name"
           />
           <Input
-            height="3rem"
-            width="20vw"
+            
             data={email}
             type="email"
             change={setEmail}
             pHold=" email"
           />
           <Input
-            height="3rem"
-            width="20vw"
+            
             data={password}
             type="password"
             change={setPassword}
@@ -98,7 +95,7 @@ function SignUp() {
             onClick={(e) => {
               submitHandler(e);
             }}
-            className="bg-white text-neutral-700 py-2 px-4 text-[1.3vw] font-medium rounded-lg shadow-lg shadow-gray-600"
+            className="bg-white text-neutral-700 py-2 px-4   xl:text-[1.5vw] 2xl:text-[1.3vw] font-medium rounded-lg shadow-lg shadow-gray-600"
           >
             Create an account
           </button>

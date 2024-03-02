@@ -5,11 +5,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 .card {
-  height: 250px;
-  width: 200px;
   perspective: 1000px;
   position: relative;
 }
+
 
 .inner-card {
   width: 100%;

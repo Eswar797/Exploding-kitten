@@ -153,11 +153,11 @@ function Game() {
   }, [cardArr, isAuthenticated, navigate, result, gameOver, lose, win]);
 
   return (
-    <div className="h-screen w-full  flex  justify-center items-center flex-col pt-0 gap-y-10 overflow-hidden relative">
-      <span className={isAuthenticated ? "hidden" : "absolute top-12"}>
+    <div className="h-screen w-full  flex  justify-center items-center flex-col pt-0 gap-y-12 overflow-hidden relative">
+      <span className={isAuthenticated ? "hidden" : "absolute top-28 sm:top-36 lg:top-24 xl:top-8 2xl:top-12"}>
         * Note: Log in to Keep Track of your Score
       </span>
-      <div className="grid grid-cols-3 items-center justify-center gap-4 w-2/4  ">
+      <div className="grid grid-cols-2 sm:grid-cols-3 items-center justify-center gap-y-2 gap-x-6 lg:gap-x-4 mt-24 h-3/5 xl:h-4/6 sm:w-3/4  lg:w-2/3 xl:w-2/4  ">
         {newCards.map((item, idx) => {
           return (
             <motion.div
@@ -181,7 +181,7 @@ function Game() {
       <div className="">
         <button
           onClick={reload}
-          className="text-[1.15vw] py-2 px-4 rounded-md text-neutral-800 bg-white"
+          className=" sm:text-[2.5vw] lg:text-[2vw] xl:text-[1.5vw] 2xl:text-[1.15vw] py-2 px-4 rounded-md text-neutral-800 bg-white"
         >
           Refresh Page
         </button>

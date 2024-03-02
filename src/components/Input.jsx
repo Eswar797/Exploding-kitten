@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 
-function Input({ height, width, data, type, change,pHold }) {
+function Input({  data, type, change,pHold }) {
   const [show, setShow] = useState(false);
   return (
     <div className="relative">
       <input
-        className={`  py-2 px-4 rounded-lg border-[1px] border-gray-100 outline-none bg-transparent`}
-        style={{ height, width }}
+        className={`  py-2 px-4 rounded-lg border-[1px] border-gray-100 outline-none bg-transparent w-[60vw] sm:h-[6vw] lg:h-[5vw] sm:w-[40vw] xl:h-[4vw] xl:w-[30vw]`}
         type={type === "password" ? (show ? "text" : type) : type}
         value={data}
         placeholder={pHold}
@@ -27,7 +26,7 @@ function Input({ height, width, data, type, change,pHold }) {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-8 h-8"
+              className=" h-6 w-6  sm:w-8 sm:h-8"
             >
               <path
                 strokeLinecap="round"
@@ -42,7 +41,7 @@ function Input({ height, width, data, type, change,pHold }) {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-8 h-8"
+              className="h-6 w-6  sm:w-8 sm:h-8"
             >
               <path
                 strokeLinecap="round"

@@ -20,7 +20,7 @@ function Card({ item }) {
   return (
     <>
       <motion.div
-        className="min-h-full min-w-2/3 flex justify-center items-center card  "
+        className="   flex justify-center items-center card h-[150px] w-[140px] sm:h-[230px] sm:w-[180px] lg:h-[250px] lg:w-[200px] xl:h-[200px] xl:w-[170px] 2xl:h-[250px] 2xl:w-[200px] "
         onClick={() => {
           cardFlip();
         }}
@@ -38,12 +38,12 @@ function Card({ item }) {
               <img
                 src={item.img}
                 alt={`${item.type}img`}
-                className="h-[8vw] w-[8vw] object-contain"
+                className=" h-[12vw] w-[12vw] xl:h-[8vw] xl:w-[8vw] object-contain"
               />
-              <span className="text-[1vw] ">{item.name}</span>
+              <span className=" text-[3vw] xl:text-[1vw] ">{item.name}</span>
             </div>
           </div>
-          <div className=" text-[2vw] font-semibold back-card   flex justify-center items-center rounded-xl">
+          <div className=" text-[6vw] sm:text-[4vw] lg:text-[3vw] xl:text-[2vw] font-semibold back-card   flex justify-center items-center rounded-xl">
             <div className=" h-5/6 w-5/6  border-orange-300 border-[10px] rounded-lg flex justify-center items-center">
               Card
             </div>

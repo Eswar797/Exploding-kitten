@@ -68,20 +68,18 @@ function LoginScreen() {
     <div className="h-screen w-full flex justify-center items-center">
       <div className="h-2/4 w-full flex justify-center items-end">
         <form className="flex justify-center items-center flex-col gap-5 gap-y-10 py-10 px-12 rounded-lg bg-neutral-900 relative z-[999] ">
-          <h1 className="text-[1.5vw] font-semibold gameOverText">
+          <h1 className="sm:text-[2.5vw] lg:text-[1.8vw] xl:text-[1.5vw] font-semibold gameOverText">
             Let's Play
           </h1>
           <Input
-            height="3rem"
-            width="20vw"
+          
             data={email}
             type="email"
             change={setEmail}
             pHold=" email"
           />
           <Input
-            height="3rem"
-            width="20vw"
+            
             data={password}
             type="password"
             change={setPassword}
@@ -91,7 +89,7 @@ function LoginScreen() {
             onClick={(e) => {
               submitHandler(e);
             }}
-            className="bg-white text-neutral-700 py-1 px-4 text-[1.3vw] font-medium rounded-lg shadow-lg shadow-gray-600"
+            className="bg-white text-neutral-700 py-1 px-4 text-[5vw] sm:text-[2.5vw] lg:text-[2.3vw] xl:text-[1.7vw] 2xl:text-[1.3vw] font-medium rounded-lg shadow-lg shadow-gray-600"
           >
             Get in
           </button>

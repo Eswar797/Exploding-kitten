@@ -51,7 +51,7 @@ function App() {
     <div className="  w-full h-full bg-neutral-950 text-neutral-200 font-normal">
       <header className="flex justify-between items-start px-6 pt-5 fixed w-full  z-[999]">
         <Link className=" cursor-pointer" to="/">
-          <div className="h-[5vw] w-[5vw]">
+          <div className=" h-auto w-[18vw]  sm:w-[13vw]  lg:w-[10vw]   xl:w-[8vw]">
             <img
               src="https://s3-storage.textopus.nl/wp-content/uploads/2016/01/18010947/Exploding-Kittens-icon.png"
               alt="catimage"
@@ -73,7 +73,7 @@ function App() {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
-                className={showProfile ? "hidden" : "w-12 h-12"}
+                className={showProfile ? "hidden" : "  w-16  sm:w-20 h-auto  xl:w-12 xl:h-12"}
               >
                 {/* Define the linear gradient */}
                 <defs>
@@ -111,10 +111,10 @@ function App() {
               </svg> */}
             </span>
             <motion.div
-              initial={{ translateX: "120%" }}
+              initial={{ translateX: "140%" }}
               animate={drawer}
               transition={{ duration: 1, delay: 0.2, ease: "circInOut" }}
-              className={` absolute top-2 right-2 h-[25rem] w-[20vw] bg-neutral-950 rounded-lg shadow-2xl shadow-orange-900 profile-drawer`}
+              className={` absolute top-2 right-2 pb-8 w-[50vw] sm:w-[35vw] xl:w-[20vw] bg-neutral-950 rounded-lg shadow-2xl shadow-orange-900 profile-drawer`}
             >
               <span
                 className="absolute top-1 right-1 cursor-pointer"
@@ -124,7 +124,7 @@ function App() {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="url(#icon-gradient2)"
-                  className="w-12 h-12"
+                  className=" w-10 sm:w-12 lg:w-16 h-auto  xl:w-12 xl:h-12"
                 >
                   <defs>
                     <linearGradient
@@ -147,11 +147,11 @@ function App() {
                 </svg>
               </span>
               <div>
-                <div className="py-4 px-5 border-y-[1px] border-neutral-600 mt-16 flex justify-evenly items-center">
+                <div className="py-4 px-5 border-y-[1px] border-neutral-600 mt-14 sm:mt-16 lg:mt-20 xl:mt-16 flex justify-evenly items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
-                    className="w-16 h-16"
+                    className=" w-12 h-12 sm:w-16 sm:h-16"
                   >
                     <defs>
                       <linearGradient
@@ -173,24 +173,24 @@ function App() {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span className="text-[1.2vw] font-medium">
+                  <span className=" text-[4vw] sm:text-[3vw]  lg:text-[2vw] xl:text-[1.2vw] font-medium">
                     {user && user.name}
                   </span>
                 </div>
                 <div className="flex justify-center items-center flex-col py-4">
-                  <span className=" text-[1.3vw] font-medium underline">
+                  <span className="  text-[4vw] sm:text-[2.6vw] lg:text-[2vw] xl:text-[1.3vw] font-medium underline">
                     Matches
                   </span>
-                  <div className="flex justify-evenly items-center border-b-[1px] border-neutral-600 w-full py-3">
-                    <div className="flex justify-center items-center flex-col text-[1.2vw]">
+                  <div className="flex justify-evenly items-center border-b-[1px] border-neutral-600 w-full py-4 sm:py-5 xl:py-3">
+                    <div className="flex justify-center items-center flex-col sm:text-[2.4vw] lg:text-[1.8vw] xl:text-[1.2vw]">
                       <span>Total</span>
                       <span>{user.matches ? user.matches.total : 0}</span>
                     </div>
-                    <div className="flex justify-center items-center flex-col text-[1.2vw]">
+                    <div className="flex justify-center items-center flex-col sm:text-[2.4vw] lg:text-[1.8vw] xl:text-[1.2vw]">
                       <span>Won</span>
                       <span>{user.matches ? user.matches.won : 0}</span>
                     </div>
-                    <div className="flex justify-center items-center flex-col text-[1.2vw]">
+                    <div className="flex justify-center items-center flex-col sm:text-[2.4vw] lg:text-[1.8vw] xl:text-[1.2vw]">
                       <span>Lose</span>
                       <span>{user.matches ? user.matches.lose : 0}</span>
                     </div>
@@ -198,7 +198,7 @@ function App() {
                 </div>
                 <div className="flex justify-center items-center w-full">
                   <button
-                    className="mt-4 bg-gradient-to-tl from-orange-600 via-red-700 to-yellow-600 py-1 px-3 rounded-md text-[1vw] font-medium gameOverText"
+                    className="mt-4 bg-gradient-to-tl from-orange-600 via-red-700 to-yellow-600 py-1 px-3 rounded-md sm:text-[2vw] xl:text-[1vw] font-medium gameOverText"
                     onClick={() => {
                       localStorage.removeItem("token");
                       setShowProfile(false);
@@ -218,7 +218,7 @@ function App() {
                 location.pathname === "/signup" ||
                 location.pathname === "/login"
                   ? "hidden"
-                  : "bg-white text-neutral-700 text-[1.5vw] font-semibold py-2 px-4 rounded-lg whitespace-nowrap flex flex-row items-center justify-center gap-x-4 capitalize  cursor-pointer"
+                  : "bg-white text-neutral-700 text-[3.7vw]  sm:text-[3.2vw] lg:text-[2.5vw] xl:text-[1.8vw] font-semibold py-2 px-4 rounded-lg whitespace-nowrap flex flex-row items-center justify-center gap-x-4 capitalize  cursor-pointer"
               }`}
             >
               <svg

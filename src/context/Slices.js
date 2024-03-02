@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
-export let serverUrl = "http://localhost:5000";
+export let serverUrl = "https://exploding-kitten-backend.onrender.com";
 
 export const UserSlice = createSlice({
   name: "UserSlice",
@@ -177,5 +177,3 @@ export async function GetProfile(dispatch) {
     });
   }
 }
-
-

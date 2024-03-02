@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
-let serverUrl = "http://localhost:5000";
+let serverUrl = "https://exploding-kitten-backend.onrender.com";
 
 export const UserSlice = createSlice({
   name: "UserSlice",

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Card from "../components/Card";
-import { changeResult } from "../context/Slices.js";
+import { changeResult, serverUrl } from "../context/Slices.js";
 import { cards } from "../data/Cards";
 
 function Game() {
@@ -48,7 +48,7 @@ function Game() {
   async function AddResult(result) {
     let token = JSON.parse(localStorage.getItem("token"));
     try {
-      let res = await fetch("http://localhost:5000/api/v1/user/matches", {
+      let res = await fetch(`${serverUrl}/api/v1/user/matches`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

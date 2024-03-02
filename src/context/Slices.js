@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
-let serverUrl = "https://exploding-kitten-backend.onrender.com";
+export let serverUrl = "http://localhost:5000";
 
 export const UserSlice = createSlice({
   name: "UserSlice",
@@ -178,49 +178,4 @@ export async function GetProfile(dispatch) {
   }
 }
 
-export async function AddResult(result) {
-  let token = JSON.parse(localStorage.getItem("token"));
-  try {
-    let res = await fetch(`${serverUrl}/api/v1/user/matches`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ result }),
-    });
 
-    let data = await res.json();
-    if (data.success === true) {
-      toast.success(data.message, {
-        position: "top-center",
-        autoClose: 3000,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-    } else {
-      return toast.error(data.message, {
-        position: "top-center",
-        autoClose: 3000,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-    }
-  } catch (error) {
-    toast.error(error.message, {
-      position: "top-center",
-      autoClose: 3000,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  }
-}

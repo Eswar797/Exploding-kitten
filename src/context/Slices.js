@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
-let serverUrl = "https://exploding-kitten-backend.onrender.com";
+let serverUrl = "http://localhost:5000";
 
 export const UserSlice = createSlice({
   name: "UserSlice",
@@ -37,7 +37,7 @@ export async function fetchData() {
   }
 }
 
-export async function Register(name, email, password, dispatch) {
+export async function Register(name, email, password, navigate) {
   try {
     let res = await fetch(`${serverUrl}/api/v1/user/signup`, {
       method: "POST",
@@ -57,6 +57,7 @@ export async function Register(name, email, password, dispatch) {
         progress: undefined,
         theme: "dark",
       });
+      navigate("/login");
     } else {
       return toast.error(data.message, {
         position: "top-center",

@@ -48,8 +48,7 @@ function SignUp() {
           theme: "dark",
         });
       } else {
-        Register(name, email, password, dispatch);
-        navigate("/login");
+        Register(name, email, password, navigate);
       }
     }
   };

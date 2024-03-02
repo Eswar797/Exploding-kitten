@@ -46,7 +46,6 @@ function Game() {
   );
 
   async function AddResult(result) {
-    console.log(result);
     let token = JSON.parse(localStorage.getItem("token"));
     try {
       let res = await fetch("http://localhost:5000/api/v1/user/matches", {
@@ -95,6 +94,7 @@ function Game() {
 
   useEffect(() => {
     const timer = setInterval(() => {
+      let addToLose = false;
       if (cardArr.length === 5) {
         clearInterval(timer);
         if (!cardArr.includes("exploding") && !cardArr.includes("shuffle")) {
@@ -108,40 +108,40 @@ function Game() {
           }, 1000);
         } else {
           if (cardArr.includes("exploding")) {
+            clearInterval(timer);
             if (cardArr.includes("shuffle")) {
+              clearInterval(timer);
               setTimeout(() => {
                 window.location.reload();
-                clearInterval(timer);
               }, 500);
             } else {
               if (cardArr.includes("defuse")) {
                 console.log("Bomb is Defused");
+                clearInterval(timer);
                 setTimeout(() => {
                   navigate("/result");
                   win();
-                  console.log(result);
 
                   if (isAuthenticated) {
                     AddResult("win");
                   }
-                  clearInterval(timer);
                 }, 1000);
               } else {
                 setTimeout(() => {
+                  clearInterval(timer);
                   lose();
-                  console.log(result);
-                  if (isAuthenticated) {
+                  if (isAuthenticated && !addToLose) {
+                    addToLose = true;
                     AddResult("lose");
                   }
                   gameOver.start({ transform: "translateY(0)" });
                 }, 100);
-                clearInterval(timer);
               }
             }
           } else if (cardArr.includes("shuffle")) {
+            clearInterval(timer);
             setTimeout(() => {
               window.location.reload();
-              clearInterval(timer);
             }, 500);
           }
         }
@@ -171,7 +171,7 @@ function Game() {
               }}
               initial={{ display: "flex" }}
               animate={removeCard[idx]}
-              transition={{ duration: 2, delay: 2, ease: "linear" }}
+              transition={{ duration: 3, delay: 2, ease: "linear" }}
             >
               <Card key={idx} item={item} />
             </motion.div>
@@ -181,7 +181,7 @@ function Game() {
       <div className="">
         <button
           onClick={reload}
-          className="text-[1.15vw] py-2 px-4 rounded-md text-neutral-200 bg-gradient-to-tl from-orange-600 via-red-700 to-yellow-600"
+          className="text-[1.15vw] py-2 px-4 rounded-md text-neutral-800 bg-white"
         >
           Refresh Page
         </button>

@@ -25,6 +25,8 @@ function App() {
     if (token) {
       dispatch(setIsAuthenticated(true));
       GetProfile(dispatch);
+    } else {
+      setIsAuthenticated(false);
     }
   }, [isAuthenticated, dispatch]);
 
@@ -41,23 +43,9 @@ function App() {
 
   useEffect(() => {
     drawerOpener();
-    // const handleClickOutside = (event) => {
-    //   (event.target);
-    //   if (!showProfile) {
-    //     if (!event.target.closest("profile-drawer")) {
-    //       setShowProfile(true);
-    //     }
-    //   } else {
-    //     if (!event.target.closest("profile-drawer")) {
-    //       setShowProfile(false);
-    //     }
-    //   }
-    // };
-    // window.addEventListener("click", handleClickOutside);
-    // return () => {
-    //   window.removeEventListener("click", handleClickOutside);
-    // };
-  }, [showProfile, drawerOpener]);
+    GetProfile(dispatch);
+  }, [showProfile, drawerOpener, isAuthenticated,dispatch]);
+  console.log(isAuthenticated);
 
   return (
     <div className="  w-full h-full bg-neutral-950 text-neutral-200 font-normal">
@@ -214,6 +202,7 @@ function App() {
                     onClick={() => {
                       localStorage.removeItem("token");
                       setShowProfile(false);
+                      setIsAuthenticated(false);
                     }}
                   >
                     Log out

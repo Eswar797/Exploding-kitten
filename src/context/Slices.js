@@ -27,7 +27,7 @@ export const { changeResult, setIsAuthenticated, setUser } = UserSlice.actions;
 
 export async function fetchData() {
   try {
-    let res = await fetch("http://localhost:5000/api/v1/user");
+    let res = await fetch(`${serverUrl}/api/v1/user`);
     let data = await res.json();
     if (data) {
     }
